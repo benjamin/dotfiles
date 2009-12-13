@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 require File.dirname(__FILE__) + '/folder_completion.rb'
 
-puts FolderCompletion.new(ENV["COMP_LINE"], '~/Work').matches
+puts FolderCompletion.new(ENV["COMP_LINE"], '~/Work/Cogent').matches
 exit 0

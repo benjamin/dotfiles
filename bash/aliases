@@ -12,6 +12,8 @@ alias ci='rake ci'
 alias rf='rake features'
 alias tlog='tail -f log/development.log'
 
+alias reload='. ~/.profile'
+
 # changing directory to projects
 function c { cd ~/Code/$1; }
-function w { cd ~/Work/$1; }
+function w { cd ~/Work/Cogent/$1; }

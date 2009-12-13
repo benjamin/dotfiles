@@ -4,7 +4,7 @@ require 'erb'
 desc "install the dot files into user's home directory"
 task :install do
   require File.dirname(__FILE__) + '/private_config_vars.rb'
-  replace_all = true
+  replace_all = false
   Dir['*'].each do |file|
     next if %w[Rakefile README README.rdoc LICENSE private_config_vars.rb].include? file
     
