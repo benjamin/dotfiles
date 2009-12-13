@@ -1,0 +1,2 @@
+export GEM_HOME="$(brew --prefix)/Cellar/Gems/1.8"
+export PATH=$PATH:/usr/local/sbin

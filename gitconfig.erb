@@ -1,0 +1,18 @@
+[user]
+        name = <%= MY_NAME %>
+        email = <%= MY_EMAIL %>
+[color]
+        status = auto
+        diff = auto
+        branch = auto
+[alias]
+        st = status
+        co = checkout
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+[core]
+        excludesfile = <%= ENV['HOME'] %>/.gitignore
+[apply]
+        whitespace = nowarn
+[github]
+        user = <%= GITHUB_USERNAME %>
+        token = <%= GITHUB_TOKEN  %>
