@@ -1,2 +1,3 @@
 export EDITOR=/usr/local/bin/mate_wait
 export PAGER=/usr/local/bin/most
+export CLICOLOR=true
