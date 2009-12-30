@@ -15,22 +15,22 @@ class BasherBase
   end
 
 private
-  def handler(regex, &block)
-    @handlers << BasherHandler.new(regex, &block)
+  def handler(pattern, &block)
+    @handlers << BasherHandler.new(pattern, &block)
   end
 end
 
 class BasherHandler
   def initialize(pattern, &block)
     raise "Handlers must always have a block" if block.nil?
-    if String === pattern
-      p = pattern.gsub(/\$\w+/, '(.*)') # Replace $var with (.*)
-      pattern = Regexp.new("^#{p}$") 
+    if pattern.is_a?(String)
+      regexp = pattern.gsub(/\$\w+/, '(.*)') # Replace $var with (.*)
+      pattern = Regexp.new("^#{regexp}$") 
     end
     @regexp, @block = pattern, block
   end
 
-  def handler_match(name)
+  def match(name)
     case name
     when String then regexp.match(name)
     when Regexp then regexp == name

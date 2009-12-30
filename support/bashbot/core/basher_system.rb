@@ -1,8 +1,13 @@
 require File.join(File.dirname(__FILE__), 'basher_base')
  
+module BashBotErrors
+  class HandlerNotFound < StandardError; end
+  class TooManyHandlers < StandardError; end
+end
+ 
 class Bashers
-  @registered = {}
-  @@handlers = []
+  @registered = []
+  @handlers = []
   class << self
     attr_reader :registered
     attr_reader :handlers
@@ -13,36 +18,20 @@ class Bashers
   def self.define(name, &block)
     basher = BasherBase.new(@bash_bot)
     basher.instance_eval(&block)
-    # @handlers[name] = []
-    @@handlers += basher.handlers
+    @registered << name
+    @handlers += basher.handlers
   end
   
-  def self.handle_command(command)
-    command_str = command.join(" ")
+  def self.handle_command(args)
+    command_str = args.join(" ")
     handler = find_handler(command_str)
-    handler ? handler.invoke(command_str) : nil
+    handler.invoke(command_str)
   end
   
   def self.find_handler(command_str)
-    matches = @@handlers.find_all { |h| h.handler_match(command_str) }
-    # matches = best_matches(handler_name, matches) if matches.size > 1 && options[:guess]
-    raise "TOO MANY" if matches.size > 1
+    matches = @handlers.find_all { |h| h.match(command_str) }
+    raise BashBotErrors::HandlerNotFound if matches.empty?
+    raise BashBotErrors::TooManyMatches if matches.size > 1 #The plan is to get smarter about multiple matches.
     matches.first
-  end
-
-  # def best_matches(step_name, step_matches)
-  #   max_arg_length = step_matches.map {|step_match| step_match.args.length }.max
-  #   top_groups     = step_matches.select {|step_match| step_match.args.length == max_arg_length }
-  # 
-  #   if top_groups.length > 1
-  #     shortest_capture_length = top_groups.map {|step_match| step_match.args.inject(0) {|sum, c| sum + c.length } }.min
-  #     top_groups.select {|step_match| step_match.args.inject(0) {|sum, c| sum + c.length } == shortest_capture_length }
-  #   else
-  #     top_groups
-  #   end
-  # end
-  
-  def bash
-    @bash_bot
   end
 end

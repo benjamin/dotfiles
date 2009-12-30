@@ -3,39 +3,30 @@ require File.join(File.dirname(__FILE__), 'core', 'basher_system')
 
 class BashBot
   def self.handle_command(command)
-    bot = self.new
-    bot.get_bashing(command)
-  end
-
-  def load_bashers
-    Bashers.bash_bot = self
-    Dir["#{File.dirname(__FILE__)}/bashers/*.rb"].each{ |x| load x }
-  end
-   
-  def get_bashing(command)
-    Bashers.handle_command(command)
+    self.new(command)
   end
 
   def run(*cmd)
     cmd.compact!
-    $stderr.puts "BashBot is handling things: '#{cmd.join(' ')}'"
     system(*cmd)
   end
 
-  def echo(message)
-    $stderr.puts("\n" + message)
+private
+  def initialize(command=nil)
+    load_bashers
+    Bashers.handle_command(command) if command
   end
   
-private
-  def initialize
-    load_bashers
-  end
+  def load_bashers
+    Bashers.bash_bot = self
+    Dir["#{File.dirname(__FILE__)}/bashers/*.rb"].each{ |x| require x }
+  end   
 end
  
 #Main
-command = ARGV
-if BashBot.handle_command(command)
+begin
+  BashBot.handle_command(ARGV)
   exit(255)
-else
+rescue BashBotErrors::HandlerNotFound
   exit(0)
 end
