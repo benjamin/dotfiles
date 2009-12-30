@@ -2,7 +2,7 @@ alias more="/usr/local/bin/most"
 
 alias start_mysql="/usr/local/share/mysql/mysql.server start"
 alias stop_mysql="/usr/local/share/mysql/mysql.server stop"
-alias start_pg="/usr/local/bin/pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'"
+alias start_pg="/usr/local/bin/pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias stop_pg="/usr/local/bin/pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 
 alias ss='script/server'
