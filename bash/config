@@ -5,4 +5,5 @@ export CLICOLOR=true
 # Method missing for bash.
 # Using teh all new aw3s0m3 BashBot
 shopt -s extdebug
-trap 'if ! type -t $BASH_COMMAND >/dev/null; then ~/.support/bashbot/BashBot.rb $BASH_COMMAND; fi' DEBUG
+
+trap 'COMMAND=${BASH_COMMAND%% *}; if ! type -t $COMMAND >/dev/null; then ~/.support/bashbot/BashBot.rb $BASH_COMMAND; fi' DEBUG
