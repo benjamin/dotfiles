@@ -2,7 +2,7 @@ Bashers.define "GoogleConverter" do
   author "Benjamin Birnbaum"
   desc "Unit/Currency conversion powered by google"
 
-  handler /^(.+) in (.+)$/ do |from, to|
+  handler "$from in $to" do |from, to|
     require 'rubygems'
     require 'cgi'
     require 'scrubyt'
