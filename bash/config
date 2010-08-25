@@ -2,6 +2,12 @@ export EDITOR=/usr/local/bin/mate_wait
 export PAGER=/usr/local/bin/most
 export CLICOLOR=true
 
+export GOROOT=`brew --cellar`/go/HEAD
+export GOARCH=amd64
+export GOOS=darwin
+
+export ANT_OPTS="-XX:MaxPermSize=128m -Xms64m -Xmx512m -Dhttp.proxyHost=proxy -Dhttp.proxyPort=8080 "
+
 # Method missing for bash.
 # Using teh all new aw3s0m3 BashBot
 shopt -s extdebug
