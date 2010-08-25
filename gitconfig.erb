@@ -6,7 +6,7 @@
         diff = auto
         branch = auto
 [alias]
-        st = status
+        st = status -sb
         co = checkout
         lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [core]
@@ -16,3 +16,7 @@
 [github]
         user = <%= GITHUB_USERNAME %>
         token = <%= GITHUB_TOKEN  %>
+[push]
+        default = tracking
+[branch]
+        autosetuprebase = always
