@@ -8,3 +8,14 @@ push_ssh_cert() {
         ssh $_host 'cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_rsa.pub
     done
 }
+
+# Function to create a new tab from the terminal
+# and cd to the same current working directory.
+function nth {
+  osascript -e "
+  Tell application \"Terminal\"
+    activate
+    tell application \"System Events\" to tell process \"Terminal\" to keystroke \"t\" using command down
+    do script with command \"cd '$(pwd)'; clear\" in selected tab of the front window
+  end tell"
+}
