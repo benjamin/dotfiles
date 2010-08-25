@@ -1,4 +1,5 @@
 ---
+gem: -n/usr/local/bin
 :benchmark: false
 :verbose: true
 :update_sources: true
