@@ -9,8 +9,10 @@ alias start_mongo="mongod run --config /usr/local/Cellar/mongodb/1.2.0-x86_64/mo
 alias ss='script/server'
 alias sc='script/console'
 alias sg='script/generate'
+alias rc="rails c"
+alias rs="rails s"
+alias rg="rails g"
 alias ci='rake ci'
-alias rf='rake features'
 alias tlog='tail -f log/development.log'
 
 alias reload='. ~/.profile'
