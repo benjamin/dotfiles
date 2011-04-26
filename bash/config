@@ -12,4 +12,5 @@ export ANT_OPTS="-XX:MaxPermSize=128m -Xms64m -Xmx512m -Dhttp.proxyHost=proxy -D
 # Using teh all new aw3s0m3 BashBot
 shopt -s extdebug
 
-trap 'COMMAND=${BASH_COMMAND%% *}; if ! type -t $COMMAND >/dev/null; then ~/.support/bashbot/BashBot.rb $BASH_COMMAND; fi' DEBUG
+# Decommission  the bashbot - cool theory, but of little value
+# trap 'COMMAND=${BASH_COMMAND%% *}; if ! type -t $COMMAND >/dev/null; then ~/.support/bashbot/BashBot.rb $BASH_COMMAND; fi' DEBUG

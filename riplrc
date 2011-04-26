@@ -7,7 +7,6 @@ unless Ripl.config[:web]
   Ripl.config[:color_error] = '34;1'
 end
 
-require 'ripl/options'
 require 'ripl/commands'
 require 'ripl/after_rc'
 
@@ -16,5 +15,3 @@ IRB_PROCS = {}
 Ripl.after_rc do
   IRB_PROCS.values.each {|proc| proc.call }
 end
-
-require 'ripl/hirb'
