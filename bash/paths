@@ -1,3 +1,4 @@
 export PATH=$PATH:/usr/local/sbin:/usr/local/Library/Contributions/examples
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+# This loads RVM into a shell session.
+[[ -s "/Users/benjamin/.rvm/scripts/rvm" ]] && source "/Users/benjamin/.rvm/scripts/rvm"
