@@ -6,16 +6,18 @@ alias start_pg="/usr/local/bin/pg_ctl -D /usr/local/var/postgres -l /usr/local/v
 alias stop_pg="/usr/local/bin/pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias start_mongo="mongod run --config /usr/local/Cellar/mongodb/1.2.0-x86_64/mongod.conf"
 
-alias ss='script/server'
-alias sc='script/console'
-alias sg='script/generate'
+alias ss="script/server"
+alias sc="script/console"
+alias sg="script/generate"
 alias rc="rails c"
 alias rs="rails s"
 alias rg="rails g"
-alias ci='rake ci'
-alias tlog='tail -f log/development.log'
+alias ci="rake ci"
+alias bci="bundle exec rake ci"
+alias tlog="tail -f log/development.log"
+alias be="bundle exec"
 
-alias reload='. ~/.profile'
+alias reload=". ~/.profile"
 
 # changing directory to projects
 function c { cd ~/Code/$1; }
