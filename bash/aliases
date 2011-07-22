@@ -14,6 +14,7 @@ alias rs="rails s"
 alias rg="rails g"
 alias ci="rake ci"
 alias bci="bundle exec rake ci"
+alias brake="bundle exec rake"
 alias tlog="tail -f log/development.log"
 alias be="bundle exec"
 
