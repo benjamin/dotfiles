@@ -1,42 +1,19 @@
 #!/usr/bin/ruby
-if defined? IRB
-  require 'irb/completion'
-  require 'irb/ext/save-history'
+# https://github.com/carlhuda/bundler/issues/183#issuecomment-1149953
+# if defined?(::Bundler)
+#   p ENV['GEM_PATH']
+#   global_gemset = ENV['GEM_PATH'].split(':').grep(/ruby.*@global/).first
+#   if global_gemset
+#     all_global_gem_paths = Dir.glob("#{global_gemset}/gems/*")
+#     all_global_gem_paths.each do |p|
+#       gem_path = "#{p}/lib"
+#       $LOAD_PATH << gem_path
+#     end
+#   end
+# end
 
-  IRB.conf[:SAVE_HISTORY] = 1000
-  IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
-  IRB.conf[:PROMPT_MODE]  = :SIMPLE
-  IRB.conf[:AUTO_INDENT]  = true
-
-  %w[rubygems sketches wirble].each do |gem|
-    begin
-      require gem
-    rescue LoadError
-    end
-  end
-
-  load File.dirname(__FILE__) + '/.railsrc' if $0 == 'irb' && ENV['RAILS_ENV']
-end
-
-class Object
-  # list methods which aren't in superclass
-  def local_methods(obj = self)
-    (obj.methods - obj.class.superclass.instance_methods).sort
-  end
-end
-
-def copy(str)
-  IO.popen('pbcopy', 'w') { |f| f << str.to_s }
-end
-
-def copy_history
-  history = Readline::HISTORY.entries
-  index = history.rindex("exit") || -1
-  content = history[(index+1)..-2].join("\n")
-  puts content
-  copy content
-end
-
-def paste
-  `pbpaste`
-end
+# Use Pry everywhere
+require "rubygems"
+require "pry"
+Pry.start
+exit

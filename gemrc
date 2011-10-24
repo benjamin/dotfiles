@@ -2,7 +2,7 @@
 :sources: 
 - http://rubygems.org/
 - http://gems.github.com
-gem: --no-rdoc --no-ri -n/usr/local/bin
+gem: --no-rdoc --no-ri
 :backtrace: false
 :benchmark: false
 :verbose: true

@@ -1,10 +1,7 @@
-alias more="/usr/local/bin/most"
-
-alias start_mysql="/usr/local/share/mysql/mysql.server start"
-alias stop_mysql="/usr/local/share/mysql/mysql.server stop"
+alias start_mysql="/usr/local/bin/mysql.server start"
+alias stop_mysql="/usr/local/bin/mysql.server stop"
 alias start_pg="/usr/local/bin/pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias stop_pg="/usr/local/bin/pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-alias start_mongo="mongod run --config /usr/local/Cellar/mongodb/1.2.0-x86_64/mongod.conf"
 
 alias ss="script/server"
 alias sc="script/console"
@@ -18,7 +15,16 @@ alias brake="bundle exec rake"
 alias tlog="tail -f log/development.log"
 alias be="bundle exec"
 
-alias reload=". ~/.profile"
+alias reload="source ~/.profile"
+
+function jump {
+  local si="$IFS";
+  IFS=$'\n';
+  local newDir=$(JUMPPROFILE=1 command jump "$@");
+  cd "$newDir";
+  IFS="$si";
+}
+alias j="jump -a"
 
 # changing directory to projects
 function c { cd ~/Code/$1; }
