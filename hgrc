@@ -1,0 +1,24 @@
+[ui]
+username = Benjamin Birnbaum <benjamin@wobolando.com>
+editor = /usr/local/bin/subl --wait
+ignore = ~/.hgignore
+
+[extensions]
+hgext.bookmarks =
+hggit =
+histedit =
+color =
+graphlog =
+pager =
+rebase =
+purge =
+hgshelve =
+prompt = /Users/benjamin/.hg-prompt/prompt.py
+
+[pager]
+pager = LESS='FSRX' less
+attend = cat, diff, glog, log, incoming, outgoing, lg, show, lga
+
+[alias]
+# Nuke everything in the working copy
+nuke = !hg up -C . && hg clean

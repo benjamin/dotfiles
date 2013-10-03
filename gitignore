@@ -4,3 +4,5 @@
 .redcar
 .tags
 .tags_sorted_by_file
+.gemtags
+.ruby-version

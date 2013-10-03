@@ -1,1 +1,1 @@
-export PATH=$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/Library/Contributions/examples:$PATH
+export PATH=/usr/local/heroku/bin:/usr/local/bin:/usr/local/sbin:/usr/local/Library/Contributions/examples:/usr/local/share/python:$PATH

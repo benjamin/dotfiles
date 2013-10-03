@@ -1,6 +1,50 @@
+if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh ]; then
+  . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
+fi
+
+function __hg_ps1() {
+  hg prompt " {branch}{status}" 2> /dev/null
+}
+
+function __prompt_cmd() {
+  local EXIT="$?"
+  PS1=""
+
+  local BLACK="\[\033[0;30m\]"
+  local BLACKBOLD="\[\033[1;30m\]"
+  local RED="\[\033[0;31m\]"
+  local REDBOLD="\[\033[1;31m\]"
+  local GREEN="\[\033[0;32m\]"
+  local GREENBOLD="\[\033[1;32m\]"
+  local YELLOW="\[\033[0;33m\]"
+  local YELLOWBOLD="\[\033[1;33m\]"
+  local BLUE="\[\033[0;34m\]"
+  local BLUEBOLD="\[\033[1;34m\]"
+  local PURPLE="\[\033[0;35m\]"
+  local PURPLEBOLD="\[\033[1;35m\]"
+  local CYAN="\[\033[0;36m\]"
+  local CYANBOLD="\[\033[1;36m\]"
+  local WHITE="\[\033[0;37m\]"
+  local WHITEBOLD="\[\033[1;37m\]"
+  local RESET="\[\e[0m\]"
+
+  if [[ $EXIT == 0 ]]; then
+    local PROMPT_COLOR=${PURPLE}
+  else
+    local PROMPT_COLOR=${RED}
+  fi
+
+  PS1+="\n${BLUE}\w"
+  PS1+="${BLACKBOLD}\$(__git_ps1 \" %s\")\$(__hg_ps1)\n"
+  PS1+="${PROMPT_COLOR}❯${RESET} "
+}
+
 export GIT_PS1_SHOWDIRTYSTATE="true"
 export GIT_PS1_SHOWUNTRACKEDFILES="true"
 export GIT_PS1_SHOWSTASHSTATE="true"
-export PS1='\h:\W \u$(__git_ps1 " (%s)")$ '
+export GIT_PS1_STATESEPARATOR=""
 
-export LSCOLORS="exfxcxdxbxegedabagacad"
+export PROMPT_COMMAND=$PROMPT_COMMAND;__prompt_cmd
+
+# Old prompt
+#export PS1='\h:\W \u$(__git_ps1 " %s")$(hg_ps1)$ '

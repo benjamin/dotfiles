@@ -1,6 +1,5 @@
 export CLICOLOR=true
-export ANT_OPTS="-XX:MaxPermSize=128m -Xms64m -Xmx512m -Dhttp.proxyHost=proxy -Dhttp.proxyPort=8080 "
-export EDITOR="subl --wait"
+export EDITOR="/usr/local/bin/subl -w"
 
 # Speed up teh Rubies
 export RUBY_HEAP_MIN_SLOTS=1000000
@@ -9,5 +8,9 @@ export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=1000000000
 export RUBY_HEAP_FREE_MIN=500000
 
+# Increase open file limit
+ulimit -n 512
+
 # rbenv
-eval "$(rbenv init -)"
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
