@@ -1,3 +1,7 @@
+[defaults]
+addremove = --similarity 100
+pull = --rebase
+
 [ui]
 username = Benjamin Birnbaum <benjamin@wobolando.com>
 editor = /usr/local/bin/subl --wait
@@ -5,6 +9,7 @@ ignore = ~/.hgignore
 
 [extensions]
 hgext.bookmarks =
+hgext.fetch =
 hggit =
 histedit =
 color =
