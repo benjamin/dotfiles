@@ -8,8 +8,8 @@ editor = /usr/local/bin/subl --wait
 ignore = ~/.hgignore
 
 [extensions]
-hgext.bookmarks =
-hgext.fetch =
+bookmarks =
+fetch =
 hggit =
 histedit =
 color =
