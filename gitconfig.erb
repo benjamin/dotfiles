@@ -8,8 +8,11 @@
 [alias]
         st = status -sb
         co = checkout
+        ribbon = tag --force _ribbon origin/master
+        catchup = log --patch --reverse --topo-order _ribbon..origin/master
         lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-        ksreview = "!f() { local SHA=${1:-HEAD}; local BRANCH=${2:-master}; if [ $SHA == $BRANCH ]; then SHA=HEAD; fi; git difftool -y -t Kaleidoscope $BRANCH...$SHA; }; f"
+        ignore = update-index --assume-unchanged
+        unignore = update-index --no-assume-unchanged
 [core]
         excludesfile = <%= ENV['HOME'] %>/.gitignore
 [apply]
@@ -21,16 +24,5 @@
         default = tracking
 [branch]
         autosetuprebase = always
-[difftool "Kaleidoscope"]
-        cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[diff]
-        tool = Kaleidoscope
-[difftool]
-        prompt = false
-[mergetool "Kaleidoscope"]
-        cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-        trustExitCode = true
-[mergetool]
-        prompt = false
-[merge]
-        tool = Kaleidoscope
+[pull]
+        rebase = preserve

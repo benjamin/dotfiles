@@ -10,14 +10,12 @@ ignore = ~/.hgignore
 [extensions]
 bookmarks =
 fetch =
-hggit =
 histedit =
 color =
 graphlog =
 pager =
 rebase =
 purge =
-hgshelve =
 prompt = /Users/benjamin/.hg-prompt/prompt.py
 
 [pager]

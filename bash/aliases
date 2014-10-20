@@ -16,4 +16,4 @@ alias reload="source ~/.profile"
 
 # changing directory to projects
 function c { cd ~/Code/$1; }
-function w { cd ~/Work/Cogent/$1; }
+function w { cd ~/Work/SchoolPlaces/$1; }
