@@ -1,3 +1,0 @@
-export CP_AUTH_SSO_ENV=development
-export SHARED_COMPONENTS_ENV=development
-export CP_DOMAIN_ENV=development
