@@ -1,28 +1,25 @@
 [user]
-        name = <%= MY_NAME %>
-        email = <%= MY_EMAIL %>
+  name = <%= MY_NAME %>
+  email = <%= MY_EMAIL %>
 [color]
-        status = auto
-        diff = auto
-        branch = auto
+  status = auto
+  diff = auto
+  branch = auto
+  ui = true
 [alias]
-        st = status -sb
-        co = checkout
-        ribbon = tag --force _ribbon origin/master
-        catchup = log --patch --reverse --topo-order _ribbon..origin/master
-        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-        ignore = update-index --assume-unchanged
-        unignore = update-index --no-assume-unchanged
+  st = status -sb
+  co = checkout
 [core]
-        excludesfile = <%= ENV['HOME'] %>/.gitignore
+  excludesfile = <%= ENV['HOME'] %>/.gitignore
+  editor = /usr/local/bin/atom-beta -w
 [apply]
-        whitespace = nowarn
+  whitespace = nowarn
 [github]
-        user = <%= GITHUB_USERNAME %>
-        token = <%= GITHUB_TOKEN  %>
+  user = <%= GITHUB_USERNAME %>
+  token = <%= GITHUB_TOKEN  %>
 [push]
-        default = tracking
+  default = tracking
 [branch]
-        autosetuprebase = always
+  autosetuprebase = always
 [pull]
-        rebase = preserve
+  rebase = preserve

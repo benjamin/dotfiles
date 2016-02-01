@@ -1,0 +1,7 @@
+export EDITOR="/usr/local/bin/atom-beta"
+export CLICOLOR=1
+export LESS="-SXFR"
+export LESS_OPTS=$LESS
+
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh

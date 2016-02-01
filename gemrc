@@ -1,8 +1,8 @@
---- 
-:sources: 
+---
+:sources:
 - http://rubygems.org/
 - http://gems.github.com
-gem: --no-rdoc --no-ri
+gem: --no-rdoc --no-ri --env-shebang
 :backtrace: false
 :benchmark: false
 :verbose: true

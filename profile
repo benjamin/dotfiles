@@ -1,9 +1,3 @@
-source ~/.bash/paths
-source ~/.bash/prompt
-source ~/.bash/aliases
-source ~/.bash/completions
-source ~/.bash/config
-source ~/.bash/history
-
-# Direnv Hook
-eval "$(direnv hook $0)"
+export PATH=/usr/local/heroku/bin:$PATH
+source ~/.shell/config
+source ~/.shell/aliases

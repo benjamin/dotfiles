@@ -1,8 +1,5 @@
-alias start_mysql="/usr/local/bin/mysql.server start"
-alias stop_mysql="/usr/local/bin/mysql.server stop"
 alias start_pg="/usr/local/bin/pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias stop_pg="/usr/local/bin/pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-
 alias start_redis="redis-server /usr/local/etc/redis.conf"
 
 alias rc="bundle exec rails c"
@@ -11,9 +8,3 @@ alias rg="bundle exec rails g"
 alias ci="bundle exec rake ci"
 alias brake="bundle exec rake"
 alias be="bundle exec"
-
-alias reload="source ~/.profile"
-
-# changing directory to projects
-function c { cd ~/Code/$1; }
-function w { cd ~/Work/SchoolPlaces/$1; }

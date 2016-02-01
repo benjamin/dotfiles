@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-require File.dirname(__FILE__) + '/folder_completion.rb'
-
-puts FolderCompletion.new(ENV["COMP_LINE"], '~/Code').matches
-exit 0
