@@ -22,7 +22,7 @@ case $1 in
     echo "export PREFIX=$PREFIX"
     echo "export RUBY_ROOT=$RUBY_ROOT"
     echo "source /usr/local/opt/chruby/share/chruby/chruby.sh"
-    echo "$(declare -f set_ruby_via_chruby)"
+    echo "$(declare -f auto_set_ruby_via_chruby)"
     echo "auto_set_ruby_via_chruby"
     ;;
 esac
