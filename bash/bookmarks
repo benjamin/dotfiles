@@ -1,0 +1,2 @@
+export dotfiles="$HOME/.dotfiles"
+export iba="$HOME/Work/IBA"

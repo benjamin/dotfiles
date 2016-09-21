@@ -1,0 +1,53 @@
+AllCops:
+  # Rails:
+  #   Enabled: true
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'vendor/**/*'
+    - 'bin/**/*'
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: single_quotes
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+Style/Encoding:
+  Enabled: true
+  EnforcedStyle: when_needed
+
+Style/EmptyLinesAroundAccessModifier:
+  Enabled: false
+
+Style/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+Style/AlignHash:
+  Enabled: false
+
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+
+Style/ExtraSpacing:
+  Enabled: true
+
+Style/WordArray:
+  Enabled: false

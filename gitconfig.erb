@@ -9,9 +9,14 @@
 [alias]
   st = status -sb
   co = checkout
+  br = branch
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  sync = "!git fetch origin master:master && git rebase master"
 [core]
   excludesfile = <%= ENV['HOME'] %>/.gitignore
   editor = /usr/local/bin/atom-beta -w
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [apply]
   whitespace = nowarn
 [github]
@@ -23,3 +28,7 @@
   autosetuprebase = always
 [pull]
   rebase = preserve
+[status]
+  submodulesummary = true
+[diff]
+	compactionHeuristic = true
