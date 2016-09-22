@@ -5,4 +5,8 @@ export LESS_OPTS=$LESS
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/opt/libffi/lib/pkgconfig
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
+
+# Auto chruby doesn't play nice with iTerm2 shell integration
+#source /usr/local/opt/chruby/share/chruby/auto.sh
+# So we'll set a default ruby manually instead
+chruby ruby-2.3.1

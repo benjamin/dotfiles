@@ -8,5 +8,3 @@ alias rg="bundle exec rails g"
 alias ci="bundle exec rake ci"
 alias brake="bundle exec rake"
 alias be="bundle exec"
-
-alias -- -="cd -"
